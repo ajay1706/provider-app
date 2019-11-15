@@ -41,15 +41,34 @@ class TaskScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 20
+              ),
 
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
               ),
+              child:ListView(
+                children: <Widget>[
+                  ListTile(
+                    title: Text('This is a Task'),
+                    trailing: Checkbox(value: false,),
+                  ) ,
+                  ListTile(
+                    title: Text('This is a Task'),
+                    trailing: Checkbox(value: false,),
+                  )
+                ],
+              ) ,
             ),
           )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.lightBlueAccent,
+          child: Icon(Icons.add),
+          onPressed: (){}),
     );
   }
 }
