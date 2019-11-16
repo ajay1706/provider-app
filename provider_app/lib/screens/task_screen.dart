@@ -9,8 +9,7 @@ class TaskScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 60,left: 30,right: 30,bottom: 30),
-
+            padding: EdgeInsets.only(top: 60, left: 30, right: 30, bottom: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -20,47 +19,34 @@ class TaskScreen extends StatelessWidget {
                     child: Icon(
                       Icons.list,
                       size: 30,
-                    color: Colors.lightBlueAccent,)),
+                      color: Colors.lightBlueAccent,
+                    )),
                 SizedBox(
                   height: 10,
                 ),
-                Text('hurly-burly',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white
-                ),),
-                Text('12 Tasks',
+                Text(
+                  'hurly-burly',
                   style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white
-                  ),),
-
+                      fontSize: 50,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white),
+                ),
+                Text(
+                  '12 Tasks',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
               ],
             ),
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20
-              ),
-
+              padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
-              ),
-              child:ListView(
-                children: <Widget>[
-                  ListTile(
-                    title: Text('This is a Task'),
-                    trailing: Checkbox(value: false,),
-                  ) ,
-                  ListTile(
-                    title: Text('This is a Task'),
-                    trailing: Checkbox(value: false,),
-                  )
-                ],
-              ) ,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))),
+              child: TaskList(),
             ),
           )
         ],
@@ -68,7 +54,28 @@ class TaskScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.lightBlueAccent,
           child: Icon(Icons.add),
-          onPressed: (){}),
+          onPressed: () {}),
+    );
+  }
+}
+
+class TaskList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[TaskTile(), TaskTile()],
+    );
+  }
+}
+
+class TaskTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text('This is a Task'),
+      trailing: Checkbox(
+        value: false,
+      ),
     );
   }
 }
