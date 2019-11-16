@@ -47,7 +47,7 @@ class _TaskScreenState extends State<TaskScreen> {
                       color: Colors.white),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${tasks.length}',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ],
@@ -71,7 +71,15 @@ class _TaskScreenState extends State<TaskScreen> {
           child: Icon(Icons.add),
           onPressed: () {
 
-           showModalBottomSheet(context: context, builder: (context)=> AddTaskScreen());
+           showModalBottomSheet(context: context, builder: (context)=> AddTaskScreen(
+               (newTaskTitle){
+               setState(() {
+
+                 tasks.add(Task(name: newTaskTitle));
+               });
+               Navigator.pop(context);
+               }
+           ));
 
 
           }),
