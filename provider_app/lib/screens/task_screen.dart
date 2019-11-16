@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider_app/widgets/task_list.dart';
+import './add_task_screen.dart';
 
+// ignore: must_be_immutable
 class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,15 +59,14 @@ class TaskScreen extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () {
 
-           showModalBottomSheet(context: context, builder: buildBottomSheet);
+           showModalBottomSheet(context: context, builder: (context)=> AddTaskScreen());
 
 
           }),
     );
   }
-Widget buildBottomSheet(BuildContext context){
-    return Container();
-}
+Widget buildBottomSheet;
+
 
 
 }
