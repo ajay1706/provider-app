@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider_app/widgets/task_list.dart';
 import './add_task_screen.dart';
+import 'package:provider_app/model/task.dart';
 
 // ignore: must_be_immutable
-class TaskScreen extends StatelessWidget {
+class TaskScreen extends StatefulWidget {
+  @override
+  _TaskScreenState createState() => _TaskScreenState();
+}
+
+class _TaskScreenState extends State<TaskScreen> {
+  List<Task> tasks = [
+    Task(name: 'Buy Milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy car')
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +61,7 @@ class TaskScreen extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
-              child: TaskList(),
+              child: TaskList(tasks: tasks,),
             ),
           )
         ],
@@ -65,10 +77,8 @@ class TaskScreen extends StatelessWidget {
           }),
     );
   }
+
 Widget buildBottomSheet;
-
-
-
 }
 
 
